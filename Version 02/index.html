@@ -1,0 +1,38 @@
+<html>
+  <head></head>
+  <body>
+  <h1>Fun With Classes</h1>
+  <canvas id="theCanvas"></canvas>
+  
+  <h2>Version 2 - With Namespaces</h2>
+  <p>
+    This version expands on <a href="..\Version 01\index.html">Version 01</a> by implementing namespaces on the various classes.  The implementation of the namespaces is fairly simplistic in this example.
+  </p>
+  <p>
+  We still have to problem of mutability on the classes, however...
+  </p><p>
+  
+  </p>
+  </body>
+  <script type="text/javascript" src="script/point.js" charset="utf-8"></script>
+  <script type="text/javascript" src="script/triangle.js" charset="utf-8"></script>
+  <script type="text/javascript" src="script/quadrilateral.js" charset="utf-8"></script>
+  <script>
+  function draw() {
+	var canvas = document.getElementById('theCanvas');
+	
+	var point1 = new Howells.Geometry.Point(75, 50);
+	var point2 = new Howells.Geometry.Point(100, 75);
+	var point3 = new Howells.Geometry.Point(100, 25);
+	var point4 = new Howells.Geometry.Point(150, 25);
+	var point5 = new Howells.Geometry.Point(150, 75);
+	
+	var triangle = new Howells.Drawing.Triangle(point1, point2, point3);
+	var rectangle = new Howells.Drawing.Quadrilateral(point2, point3, point4, point5);
+	
+	triangle.draw(canvas);
+	rectangle.draw(canvas);
+  }
+  draw();
+  </script>
+</html>
