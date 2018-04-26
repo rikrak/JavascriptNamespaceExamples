@@ -11,5 +11,5 @@ Point.prototype = {
 	x:0,
 	y:0,
 	
-	toString: function(){ return x + ', ' + y }
+	toString: function(){ return this.x + ', ' + this.y }
 };
