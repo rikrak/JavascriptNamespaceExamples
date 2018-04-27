@@ -39,6 +39,7 @@ Howells.Drawing.Quadrilateral = (function () {
                     ctx.lineTo(p.getX(), p.getY());
                 }
             }
+            ctx.fillStyle = 'blue';
             ctx.fill();
         };
     };

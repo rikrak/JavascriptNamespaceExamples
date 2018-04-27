@@ -1,19 +1,21 @@
 var Howells = Howells || {};
 Howells.Drawing = Howells.Drawing || {};
 
-Howells.Drawing.Triangle = (function () {
+Howells.Drawing.Shape = (function () {
     /**
      * @constructor 
-     * @param {Howells.Geometry.Point} v1
-     * @param {Howells.Geometry.Point} v2
-     * @param {Howells.Geometry.Point} v3
+     * @param {Array<Howells.Geometry.Point>} the points that make up the shape
+     * @param {string} name
      */
-    var theTriangle = function (v1, v2, v3) {
+    var theShape = function (nameOfShape, allPoints) {
+        var self = this;
 
-        var points = [v1, v2, v3];
+        this.getName = function() { return nameOfShape; };
+        this.getPoints = function() { return allPoints; };
 
         this.toString = function () {
-            var value = 'Triangle: ';
+            var value = self.getName() +': ';
+            var points = self.getPoints();
             for (var i = 0; i < points.length; i++) {
                 if (i > 0) {
                     value = value + ', ';
@@ -23,13 +25,14 @@ Howells.Drawing.Triangle = (function () {
             return value;
         };
 
-        this.draw = function (canvas) {
+        this.draw = function(canvas) {
             if (canvas.getContext === undefined) {
                 return;
             }
 
             var ctx = canvas.getContext('2d');
             ctx.beginPath();
+            var points = self.getPoints();
             for (var i = 0; i < points.length; i++) {
                 var p = points[i];
                 if (i === 0) {
@@ -38,11 +41,13 @@ Howells.Drawing.Triangle = (function () {
                     ctx.lineTo(p.getX(), p.getY());
                 }
             }
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = this.getFillColour();
             ctx.fill();
         };
     };
 
-    return theTriangle;
+    theShape.prototype.getFillColour = function() { return 'black'; };
+
+    return theShape;
 })();
 

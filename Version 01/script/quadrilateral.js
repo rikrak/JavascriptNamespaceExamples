@@ -20,7 +20,8 @@ Quadrilateral.prototype = {
 		ctx.moveTo(this.vertex1.x, this.vertex1.y);
 		ctx.lineTo(this.vertex2.x, this.vertex2.y);
 		ctx.lineTo(this.vertex3.x, this.vertex3.y);
-		ctx.lineTo(this.vertex4.x, this.vertex4.y);
+        ctx.lineTo(this.vertex4.x, this.vertex4.y);
+	    ctx.fillStyle = 'blue';
 		ctx.fill();
 	}
 };

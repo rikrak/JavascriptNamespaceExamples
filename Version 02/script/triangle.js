@@ -19,7 +19,8 @@ Howells.Drawing.Triangle.prototype = {
 		ctx.beginPath();
 		ctx.moveTo(this.vertex1.x, this.vertex1.y);
 		ctx.lineTo(this.vertex2.x, this.vertex2.y);
-		ctx.lineTo(this.vertex3.x, this.vertex3.y);
+        ctx.lineTo(this.vertex3.x, this.vertex3.y);
+        ctx.fillStyle = 'red';
 		ctx.fill();
 	}
 };
